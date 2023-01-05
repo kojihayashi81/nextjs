@@ -1,7 +1,6 @@
-import { Link } from 'next/link';
+import Link from 'next/link';
 
-// pages/ssr.js
-export default function SSR({ formattedDate }) {
+export default function SSR({ formattedDate }: { formattedDate: string }) {
   return (
     <>
       <h1>Server-side rendered page</h1>

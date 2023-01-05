@@ -1,7 +1,6 @@
-import { Link } from 'next/link';
+import Link from 'next/link';
 
-// pages/index.js
-export default function Home({ formattedDate }) {
+export default function Home({ formattedDate }: { formattedDate: string }) {
   return (
     <>
       <h1>Static page</h1>
