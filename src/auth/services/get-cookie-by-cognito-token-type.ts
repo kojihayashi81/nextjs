@@ -1,6 +1,6 @@
-import { RequestCookie } from "next/dist/server/web/spec-extension/cookies";
 import { NextRequest } from "next/server";
 import { TokenType } from "../constants/token-type";
+import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
 
 const clientId: string = process.env.COGNITO_USER_POOLS_WEB_CLIENT_ID || "";
 
@@ -19,7 +19,8 @@ export const getCookieByCognitoTokenType = (
   // Amplify.configure({ ...awsExports, ssr: true }); で ssr: true を設定している為JWTの保存先がCookieとなる
   const cookies = request.cookies
     .getAll()
-    .filter((cookie: RequestCookie) => regexp.test(cookie.name));
+    .filter((cookie) => regexp.test(cookie.name));
+
   return cookies.length === 1 ? cookies[0] : null;
 };
 

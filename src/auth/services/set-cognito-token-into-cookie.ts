@@ -1,7 +1,7 @@
-import { RequestCookie } from "next/dist/server/web/spec-extension/cookies";
 import { NextRequest, NextResponse } from "next/server";
 import { TokenType } from "../constants/token-type";
 import { getCookieByCognitoTokenType } from "./get-cookie-by-cognito-token-type";
+import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
 
 export const setTokenIntoCookie = (
   request: NextRequest,
