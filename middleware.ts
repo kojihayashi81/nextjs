@@ -5,11 +5,13 @@ import { refreshCognitoTokenThenSetCookie } from "./src/auth/services/refresh-co
 import { verifyCognitoToken } from "./src/auth/services/verify-cognito-token";
 import { CognitoToken } from "./src/auth/types/cognito-token";
 
-// Define paths that don't require authentication
+// 認証を必要としないパスを定義する
 const unauthenticatedPaths: string[] = ["/signin"];
+
+// 認証を必要とするパスを定義する
 const authenticatedPaths: string[] = ["/dashboard"];
 
-// Middleware that prevents unauthenticated users from accessing protected resources
+// 認証されていないユーザーが保護されたリソースにアクセスすることを防止するミドルウェア。
 export async function middleware(request: NextRequest): Promise<NextResponse> {
   const url: NextURL = request.nextUrl.clone();
 
@@ -32,7 +34,7 @@ export async function middleware(request: NextRequest): Promise<NextResponse> {
   }
 
   try {
-    // Verify the ID token
+    // idTokenを検証する
     await verifyCognitoToken(cognitoToken.idToken);
 
     // idToken検証結果が有効(認証済)かつ認証不要画面アクセスの場合ダッシュボード画面へ
@@ -73,6 +75,6 @@ export const config = {
      * - .svg (SVG file)
      * - excluded paths (e.g. static screen path)
      */
-    "/((?!api|_next/static|favicon.ico|.*\\.svg|terms).*)",
+    "/((?!api|_next/static|favicon.ico|.*\\.svg).*)",
   ],
 };

@@ -19,6 +19,10 @@ export const getCognitoTokenFromCookie = (
     TokenType.RefreshToken
   );
   return idToken && accessToken && refreshToken
-    ? { idToken: idToken, accessToken: accessToken, refreshToken: refreshToken }
+    ? {
+        idToken: idToken,
+        accessToken: accessToken,
+        refreshToken: refreshToken,
+      }
     : null;
 };
