@@ -4,7 +4,17 @@ import type { AppProps } from "next/app";
 import awsExports from "../src/aws-exports";
 import "../styles/globals.css";
 
-Amplify.configure({ ...awsExports, ssr: true });
+Amplify.configure({
+  ...awsExports,
+  ssr: true,
+  Auth: {
+    domain: 'localhost',
+    path: '/',
+    expires: 1,
+    sameSite: 'strict',
+    secure: true,
+  }
+});
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
