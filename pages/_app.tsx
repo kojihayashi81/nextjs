@@ -12,7 +12,7 @@ Amplify.configure({
     userPoolId: "ap-northeast-1_3GUWY9M6w",
     userPoolWebClientId: "25q8rcbq5kro6f3ocho133u6e0",
     cookieStorage: {
-      domain: 'localhost',
+      domain: 'amplifyapp.com',
       path: '/',
       expires: 1,
       sameSite: 'strict',
