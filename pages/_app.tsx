@@ -8,12 +8,14 @@ Amplify.configure({
   ...awsExports,
   ssr: true,
   Auth: {
-    domain: 'localhost',
-    path: '/',
-    expires: 1,
-    sameSite: 'strict',
-    secure: true,
-  }
+    cookieStorage: {
+      domain: 'localhost',
+      path: '/',
+      expires: 1,
+      sameSite: 'strict',
+      secure: true
+    }
+  },
 });
 
 export default function App({ Component, pageProps }: AppProps) {
