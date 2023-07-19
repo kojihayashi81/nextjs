@@ -8,13 +8,16 @@ Amplify.configure({
   ...awsExports,
   ssr: true,
   Auth: {
+    region: "ap-northeast-1",
+    userPoolId: "ap-northeast-1_3GUWY9M6w",
+    userPoolWebClientId: "25q8rcbq5kro6f3ocho133u6e0",
     cookieStorage: {
       domain: 'localhost',
       path: '/',
       expires: 1,
       sameSite: 'strict',
       secure: true
-    }
+    },
   },
 });
 
